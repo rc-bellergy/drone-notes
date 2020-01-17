@@ -1,0 +1,26 @@
+# Default settings for ArduPilot for Linux.
+# The file is sourced by systemd from arduplane.service
+
+#TELEM1="-A udp:192.168.192.101:14550"
+TELEM1="-A udp:192.168.192.255:14550:bcast"
+#TELEM2="-C /dev/ttyAMA0"
+
+# Options to pass to ArduPilot
+ARDUPILOT_OPTS="$TELEM1 $TELEM2"
+
+                          #    # ###### #      #####
+                          #    # #      #      #    #
+                          ###### #####  #      #    #
+                          #    # #      #      #####
+                          #    # #      #      #
+                          #    # ###### ###### #
+
+# -A is a console switch (usually this is a Wi-Fi link)
+
+# -C is a telemetry switch
+# Usually this is either /dev/ttyAMA0 - UART connector on your Navio
+# or /dev/ttyUSB0 if you're using a serial to USB convertor
+
+# -B or -E is used to specify non default GPS
+
+# Type "emlidtool ardupilot" for further help

@@ -1,0 +1,9 @@
+[Unit]
+Description=raspivid
+After=network.target
+
+[Service]
+$config-interval=10 pt=96 ! udpsink host=192.168.192.102 port=5600"
+
+[Install]
+WantedBy=default.target

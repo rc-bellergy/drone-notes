@@ -1,0 +1,30 @@
+[Unit]
+Description=ArduPilot for Linux
+After=systemd-modules-load.service
+Documentation=https://docs.emlid.com/navio2/navio-ardupilot/installation-and-running/#autostarting-ardupilot-on-boot
+Conflicts=ardupilot.service arduplane.service ardurover.service
+
+[Service]
+EnvironmentFile=/etc/default/arducopter
+
+###############################################################################
+####### DO NOT EDIT ABOVE THIS LINE UNLESS YOU KNOW WHAT YOU"RE DOING #########
+###############################################################################
+
+ExecStartPre=/bin/sleep 25
+ExecStart=/bin/sh -c "/usr/bin/arducopter ${ARDUPILOT_OPTS}"
+
+##### CAUTION ######
+# There should be only one uncommented ExecStart in this file
+# Comment out unused ExecStart. 
+
+###############################################################################
+######## DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU"RE DOING ########
+###############################################################################
+
+Restart=on-failure
+#Restart=always
+#RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
