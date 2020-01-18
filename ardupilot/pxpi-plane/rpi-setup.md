@@ -21,11 +21,13 @@
     sudo pico /etc/wpa_supplicant/wpa_supplicant.conf
 
 ## Add to /boot/config.txt
+    # Let the Pixhawk telemetry input from UART port
     enable_uart=1
+
     # Disable build-in Bluetooth
     dtoverlay=pi3-disable-bt
 
-    # Disable build-in WiFi (I use the USB WiFi)
+    # Disable build-in WiFi (Use the USB WiFi when need. I don't want it interference the RC)
     dtoverlay=pi3-disable-wifi
 
 ## Disable Bluetooth
@@ -97,25 +99,22 @@ Read detail [here](../rpi/video-streaming.md)
 | -drc high        | Increasing the range of dark areas,          |
 |                  | and decreasing the brighter areas            |
 
-### Enable the raspicam service
+---
+## Install git
+    sudo apt update
+    sudo apt install git
 
-    sudo systemctl enable raspicam
-    sudo systemctl daemon-reload
-    sudo systemctl start raspicam
-
-### Restart the raspicam service
-
-    sudo systemctl stop raspicam
-    sudo systemctl start raspicam
-
-### Disable the raspicam service
-
-    sudo systemctl disable raspicam
-    sudo systemctl daemon-reload
+---
+## Install mavlink-router
+    [mavlink-router](../mavlink/mavlink-router.md)
 
 ---
 ## Install dronekit python
 https://dronekit-python.readthedocs.io/en/latest/guide/quick_start.html
+
+---
+## Install mavlink-router
+
 
 ---
 ## Reference:

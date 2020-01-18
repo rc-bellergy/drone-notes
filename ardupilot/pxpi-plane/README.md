@@ -24,5 +24,8 @@ This project is to install Pixhawk to Parrot Disco and use a 3G / 4G network to 
 - Network: **HUAWEI E3372** (3G/4G)
 - Firmware: **ArduPlane**
 
+## The source code of onboard computer
+https://github.com/rc-bellergy/pxpi
+
 ## The Parrot Disco body inside
 ![Inside the Parrot Disco](images/IMG_4899.jpg)

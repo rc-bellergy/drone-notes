@@ -55,63 +55,30 @@ At this stage the ESC/motor should beep to indicate that it is in ESC calibratio
 ## 7. Calibration / Configation
 - [x] [Radio Control](https://ardupilot.org/plane/docs/common-radio-control-calibration.html)
 - [x] [ESC](https://ardupilot.org/plane/docs/guide-esc-calibration.html#typical-esc-calibration)
-- [ ] [Accelerometer](https://ardupilot.org/plane/docs/common-accelerometer-calibration.html)
-- [ ] [Compass](https://ardupilot.org/plane/docs/common-compass-calibration-in-mission-planner.html)
-- [ ] [Battery](https://ardupilot.org/plane/docs/common-power-module-configuration-in-mission-planner.html)
+- [x] [Accelerometer](https://ardupilot.org/plane/docs/common-accelerometer-calibration.html)
+- [x] [Compass](https://ardupilot.org/plane/docs/common-compass-calibration-in-mission-planner.html)
+- [x] [Battery](https://ardupilot.org/plane/docs/common-power-module-configuration-in-mission-planner.html)
 - [ ] [Airspeed sensor](https://ardupilot.org/plane/docs/airspeed.html#software-configuration)\
   [Calibrating an Airspeed Sensor](https://ardupilot.org/plane/docs/calibrating-an-airspeed-sensor.html)
 
 ## [8. Flight Mode Setup](https://ardupilot.org/plane/docs/flight-modes.html)
 For first flight:
 1. CRUISE 
-2. LOITER
-3. AUTOTUNE \
+3. TAKEOFF (#13)
+2. FBWA \
 --
-4. FBWA
-5. CIRCLE
-6. RTL
-
-> RC5_OPTION = 77 use channel 5 to swicth to TAKEOFF Mode
+4. LOITER
+5. AUTOTUNE
+6. FBWA
 
 ## [9. Setup Automatic Takeoff](https://ardupilot.org/plane/docs/automatic-takeoff.html#automatic-takeoff)
 - `TKOFF_THR_MINACC` = 15 (When the acceleration trigger 15 m/s/s, auto takeoff start)
 - `TKOFF_THR_DELAY` = 2 (0.2 sec. delay)
 - `TKOFF_ALT` = 50
+- `TKOFF_THR_MINSPD` = 4 m/s
 
 ## [10. Failsafe](https://ardupilot.org/plane/docs/apms-failsafe-function.html)
-- [ ] Check RC signal loss action
+- [x] Check RC signal loss action
 - [ ] Check GCS loss action
-- 
 
-
-
-
-
-# First Flght
-## [1. Auto Tuning](https://ardupilot.org/plane/docs/automatic-tuning-with-autotune.html#automatic-tuning-with-autotune)
-
-
-# After Flight
-## [99. Center of Gravity](https://ardupilot.org/plane/docs/guide-center-of-gravity.html#guide-center-of-gravity)
-- [Flying wing CG calculator](https://fwcg.3dzone.dk/)
-- [Correct After First Flight](https://ardupilot.org/plane/docs/guide-center-of-gravity.html#correct-after-first-flight)
-
-
-
-
-# ** For PX4 firmware ** 
-
-## Select Airframe
-Modified Parrot Disco
-
----
-## Change Parameters
-- BAT_V_EMPTY = 3.30v
-- BAT_N_CELLS = 3S
-- NAV_DLL_ACT = Retrun Mode
-- NAV_GPSF_LT = 300s (how long it will loiter (circle) after losing GPS position)
-- GF_MAX_VER_DIST = 400m
-- RTL_RETURN_ALT = 300m
-- MAV_1_CONFIG = TELEM 2
-- SER_TEL2_BAUD = 115200
-- 
+## 11. Additional parameters settings:
