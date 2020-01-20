@@ -7,12 +7,12 @@
 ## [2. Servo Setup & Reversal](https://ardupilot.org/plane/docs/guide-elevon-plane.html#servo-setup-reversal)
  - Switch to `FBWA` flight mode and press the safety switch
  - Check the status:
-    | Input      | Elevons Action       |
-    | ---------- | -------------------- |
-    | Roll right | Left 👆🏻 Right 👇🏻 |
-    | Roll left  | Right 👆🏻 Left 👇🏻 |
-    | Pitch down | Both 👆🏻            |
-    | Pitch up   | Both 👇🏻            |
+    | Input      | Elevons Action       | Action     |
+    | ---------- | -------------------- | ---------- |
+    | Roll right | Left 👆🏻 Right 👇🏻 | Roll left  |
+    | Roll left  | Left 👇🏻 Right 👆🏻 | Roll right |
+    | Pitch down | Both 👆🏻            | Pull up    |
+    | Pitch up   | Both 👇🏻            | Pull down  |
 
 - Change `SERVO1_REVERSED` to correct left elevon direction
 - Change `SERVO2_REVERSED` to correct right elevon direction
@@ -20,12 +20,12 @@
 ## [3. Verify RC Inputs](https://ardupilot.org/plane/docs/guide-elevon-plane.html#verify-rc-inputs)
  - Switch to `FBWA` flight mode and press the safety switch
  - Check the status:
-    | RC Input         | Elevons Action       |
-    | ---------------- | -------------------- |
-    | Roll stick right | Left 👇🏻 Right 👆🏻 |
-    | Roll stick left  | Right 👇🏻 Left 👆🏻 |
-    | Pitch stick down | Both 👇🏻            |
-    | Pitch stick up   | Both 👆🏻            |
+    | RC Input         | Elevons Action       | ACtion     |
+    | ---------------- | -------------------- | ---------- |
+    | Roll stick right | Left 👇🏻 Right 👆🏻 | Roll right |
+    | Roll stick left  | Left 👆🏻 Right 👇🏻 | Roll left  |
+    | Pitch stick down | Both 👆🏻            | Pull up    |
+    | Pitch stick up   | Both 👇🏻            | Pull down  |
 - Switch to `MANUAL` flight mode and confirm the same behavior
 - If need, change the [RC Input](https://ardupilot.org/plane/docs/rc-throw-trim.html#rc-throw-trim)
 

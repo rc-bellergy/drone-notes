@@ -25,6 +25,8 @@
     48.5g x 6 = 291g (without wires)
     Continuous Discharge Rating = 9.75A
 
+![](images/3s2p-wiring.png)
+
 ## 4S3P
     3.6v x 4s = 14.4v
     3250mAh x 3p = 9750mAh
