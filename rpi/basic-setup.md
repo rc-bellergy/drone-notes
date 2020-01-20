@@ -19,7 +19,7 @@ sudo dd if=/dev/{diskx} of=~{/path/of/image/xxxx.dmg}
 
 ## If the SD card is too large for backup?
 [Read here...](https://www.raspberrypi.org/forums/viewtopic.php?t=60161#p450676)
-[And here...](https://www.instructables.com/id/Raspberry-Pi-Resize-Partitons-Use-all-free-space/)
+
 
 ## Login default username and password
 ```
