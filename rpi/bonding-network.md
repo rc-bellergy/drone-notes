@@ -2,13 +2,14 @@
 Idea: How to use two 4G USB modems at same time to provide **more reliable** and **higher speed** network? The **ethernet channel bonding** should be the solution.
 
 ## References:
-[Main reference](https://blog.wirelessmoves.com/2014/07/ethernet-channel-bonding-with-a-raspberry-pi-and-ubuntu.html)\
-I can create the bonding network, but it seems not work. 
+[Debian reference - ](https://wiki.debian.org/Bonding)\
+I'm following this reference.
 
+[Linux reference - Very detail](https://wiki.linuxfoundation.org/networking/bonding)
 
-[Debian reference](https://wiki.debian.org/Bonding)
+[Shall I study the Ethernet Interface first?](https://wiki.debian.org/NetworkConfiguration#Setting_up_an_Ethernet_Interface)
 
-[Ubuntu reference](https://help.ubuntu.com/community/UbuntuBonding#Descriptions_of_bonding_modes)
+[Ubuntu reference - NOT for Debian](https://help.ubuntu.com/community/UbuntuBonding#Descriptions_of_bonding_modes)
 
 ## Install:
 
@@ -20,34 +21,12 @@ I can create the bonding network, but it seems not work.
     sudo pico /etc/modules
 
     ## Add the line below:
-    loop
-    lp
-    rtc
     bonding
 
 ## Modify the `/etc/network/interfaces` file
 ```conf
-# Define slaves   
-auto eth0
-iface eth0 inet manual
-    bond-master bond0
-    bond-primary eth0
-    bond-mode active-backup
+[TODO: copy the config file to here when testing successed.]
 
-auto wlan0
-iface wlan0 inet manual
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-    bond-master bond0
-    bond-primary eth0
-    bond-mode active-backup
-
-# Define master
-auto bond0
-iface bond0 inet dhcp
-    bond-slaves wlan0
-    bond-primary eth0
-    bond-mode active-backup
-    bond-miimon 100
 ```
 
 ## Enabling systemd-networkd
@@ -57,5 +36,42 @@ iface bond0 inet dhcp
 
 ## Check the status of the bonding driver: 
 
-    cat /proc/net/bonding/bond0 
+    cat /proc/net/bonding/bond0
 
+    Ethernet Channel Bonding Driver: v3.7.1 (April 27, 2011)
+
+    Bonding Mode: fault-tolerance (active-backup)
+    Primary Slave: eth0 (primary_reselect always)
+    Currently Active Slave: eth0
+    MII Status: up
+    MII Polling Interval (ms): 100
+    Up Delay (ms): 0
+    Down Delay (ms): 0
+
+    Slave Interface: eth0
+    MII Status: up
+    Speed: Unknown
+    Duplex: Unknown
+    Link Failure Count: 0
+    Permanent HW addr: 0c:5b:8f:27:9a:64
+    Slave queue ID: 0
+
+    Slave Interface: wlan0
+    MII Status: up
+    Speed: Unknown
+    Duplex: Unknown
+    Link Failure Count: 1
+    Permanent HW addr: b8:27:eb:e9:f9:b7
+    Slave queue ID: 0
+
+## Check route, it should show `bond0` and `zt2lrwgvd2` only
+    route -n
+
+    Destination    Gateway      Genmask        Flags Metric Ref Use Iface
+    0.0.0.0        192.168.8.1  0.0.0.0        UG    0      0     0 bond0
+    192.168.8.0    0.0.0.0      255.255.255.0  U     0      0     0 bond0
+    192.168.192.0  0.0.0.0      255.255.255.0  U     0      0     0 zt2lrwgvd2
+
+## Testing
+
+    

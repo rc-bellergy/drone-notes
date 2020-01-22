@@ -1,5 +1,9 @@
 # Network
 
+# WiFi config file
+
+    /etc/wpa_supplicant/wpa_supplicant.conf
+
 # Restart the WiFi
 
     sudo sudo ifconfig wlan0 down && sudo ifconfig wlan0 up
@@ -7,6 +11,9 @@
 # Close the USB modam network
 
     sudo ifconfig eth0 down
+
+# Zerotier
+[Help/support site](https://zerotier.atlassian.net/wiki/discover/all-updates)
 
 # Set the priority of network connections
 
