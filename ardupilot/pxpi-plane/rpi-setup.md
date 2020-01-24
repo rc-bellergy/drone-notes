@@ -106,15 +106,11 @@ Read detail [here](../rpi/video-streaming.md)
 
 ---
 ## Install mavlink-router
-    [mavlink-router](../mavlink/mavlink-router.md)
+[mavlink-router](../mavlink/mavlink-router.md)
 
 ---
 ## Install dronekit python
 https://dronekit-python.readthedocs.io/en/latest/guide/quick_start.html
-
----
-## Install mavlink-router
-
 
 ---
 ## Reference:

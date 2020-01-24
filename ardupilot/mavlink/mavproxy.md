@@ -18,10 +18,7 @@ echo "Start MAVProxy" $(date)
 echo "sudo screen -r mavproxy to open the screen"
 cd /home/bellergy/
 screen -dmS mavproxy \
-/usr/local/bin/mavproxy.py --non-interactive --daemon --aircraft pxpi \
---master=/dev/ttyAMA0 --baudrate 57600 \
---out=udpbcast:192.168.192.255:14550 \
---out=udp:127.0.0.1:14550
+/usr/local/bin/mavproxy.py --non-interactive --daemon --aircraft pxpi --master=/dev/ttyAMA0 --baudrate 115200 --out=udpbcast:192.168.192.255:14550 --out=udp:127.0.0.1:14550
 ) >> /tmp/rc.log 2>&1
 ```
 > Raspberry Pi 2 set `--master=/dev/ttyAMA0`<br>

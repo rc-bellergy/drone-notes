@@ -49,8 +49,13 @@ sudo raspi-config
 
 ## Install ZeroTier
 
-     curl -s 'https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg' | gpg --import && \
-     if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | sudo bash; fi
+```
+curl -s 'https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg' | gpg --import && \
+if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | sudo bash; fi
+```
+
+### Join ZeroTier
+     sudo zerotier-cli join {zerotier-network-id}
 
 ## WiFi config file 
 > It should be done on the raspi-config. In case you need to modigy the WiFi file directly.
@@ -59,33 +64,6 @@ sudo pico /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 [Read more...](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)
 
-## Home router info, add it to wpa_supplicant.conf
-```
-network={
-     ssid="Bellergy 2.4G"
-     psk="dodo6162"
-     key_mgmt=WPA-PSK
-     id_str="home-1F"
-}
-network={
-     ssid="Dollergy 2.4G"
-     psk="dodo6162"
-     key_mgmt=WPA-PSK
-     id_str="home-2F"
-}
-network={
-     ssid="DQ-Network"
-     psk="Z4=d6n7N"
-     key_mgmt=WPA-PSK
-     id_str="office"
-}
-network={
-     ssid="Bellergy iPhone"
-     psk="jk6162jk"
-     key_mgmt=WPA-PSK
-     id_str="my-iphone-hostspot"
-}
-```
 
 ## Start up WiFi
 ```

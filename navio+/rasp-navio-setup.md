@@ -15,7 +15,6 @@ Setup Respberry Pi please read [rpi basic setup](../rpi/basic-setup.md)
 ```
 ssh bellergy@navio.local
 user: bellergy
-password: JK6162jk
 ```
  
 ## Update arduplane firmware here:

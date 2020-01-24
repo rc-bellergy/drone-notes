@@ -11,11 +11,14 @@ This project is to install Pixhawk to Parrot Disco and use a 3G / 4G network to 
   - [x] Live streaming FPV vieo
   - [ ] Low latency video (< 150 ms ?)
   - [x] Remote control on/off video streaming
-  - [ ] Remote control save HD video
+  - [x] Save video
+  - [ ] Save HD video
+  - [ ] Remote control start/stop save video
 - **Monitoring**
   - [x] Send live drone positions to the Glympse for backup
   - [ ] Send onboard computer upload/download speed to ground station
   - [ ] Sndd 3G/4G network status to ground station
+  - [ ] Save cellular network status to flight log
 
 ## The Setup
 - Body: **Parrot Disco**

@@ -11,7 +11,3 @@
 2. Download firmware [firmware-esp01_1m.bin](http://firmware.ardupilot.org/Tools/MAVESP8266/latest/firmware-esp01_1m.bin)
 3. Setup: SPI MODE: DOUT, OFFSET: 0x00000, FLASH SIZE: 8Mbit, BAYDRATE: 115200, (others default)
 
-## My WiFi Setup
-    SSID: BellergyPixhawk
-    Password: dodo6162
-    Admin Page: http://192.168.4.1

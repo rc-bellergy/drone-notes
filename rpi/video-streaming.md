@@ -1,8 +1,9 @@
 # Video Streaming
+[Raspberry Pi Camera settings document](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md)
 
 ## [Video Streaming](https://docs.emlid.com/navio/common/dev/video-streaming/)
 Raspbarry Pi video streaming start up script:
-- [raspivid](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspivid.md) is the command line tool for capturing video with the camera module of Raspbarry Pi
+- [raspivid](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md) is the command line tool for capturing video with the camera module of Raspbarry Pi
 - [gst-launch-1.0](https://gstreamer.freedesktop.org/documentation/tools/gst-launch.html) build and run a GStreamer pipeline
 - [Gstreamer basic real time streaming tutorial](http://www.einarsundgren.se/gstreamer-basic-real-time-streaming-tutorial/)
 
@@ -11,71 +12,58 @@ Raspbarry Pi video streaming start up script:
     sudo apt-get install gstreamer1.0-tools gstreamer1.0-plugins-good gstreamer1.0-plugins-bad
 
 ### Start vieo streaming script
-    raspivid -n -w 1280 -h 720 -b 1000000 -fps 15 -t 0 -o - | gst-launch-1.0 -v fdsrc ! h264parse ! rtph264pay config-interval=10 pt=96 ! udpsink host=192.168.192.101 port=5600
+    raspivid -n -w 1280 -h 720 -b 1000000 -fps 15 --flush --timeout 0 -o - | gst-launch-1.0 -v fdsrc ! h264parse ! rtph264pay config-interval=10 pt=96 ! udpsink host=192.168.192.101 port=5600
 
 > The 192.168.192.101 is remote server IP
 
 
 #### Remarks of raspivid options
-| Options        | Descriptions                                 |
-| -------------- | -------------------------------------------- |
-| -n             | No preview window                            |
-| -b             | bitrate (1000000 = 10Mbits/s)                |
-| -t 0           | timeout 0 = run continuously                 |
-| -o -           | output file '-' all output is sent to stdout |
-| -vs            | Turn on video stabilisation                  |
-| -ex auto/night | Exposure auto or night mode                  |
-| -drc high      | Increasing the range of dark areas,          |
-|                | and decreasing the brighter areas            |
+| Options        | Descriptions                                                                                                                                                                                                                   |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --nopreview    | No preview window                                                                                                                                                                                                              |
+| --bitrate      | bitrate (1000000 = 10Mbits/s)                                                                                                                                                                                                  |
+| --timeout 0    | timeout 0 = run continuously                                                                                                                                                                                                   |
+| -o -           | output file '-' all output is sent to stdout                                                                                                                                                                                   |
+| --vstab        | Turn on video stabilisation                                                                                                                                                                                                    |
+| -ex auto/night | Exposure auto or night mode                                                                                                                                                                                                    |
+| --flush        | (Tested, don't use it in the slow network. It will make 'gray screen' randomly) Forces a flush of output data buffers as soon as video data is written. This bypasses any OS caching of written data, and can decrease latency |
 
 Adjust bitrate with -b switch or -fps if your video lags behind.
 
 ---
+#### Remarks of gstreamer pipeline
+| Options    | Descriptions                                                      |
+| ---------- | ----------------------------------------------------------------- |
+| -v         | Output status information                                         |
+| fdsrc      | source from unix file descriptor (raspivid's output in this case) |
+| h264parse  | convert the source to h264 format                                 |
+| rtph264pay | Payload-encode H264 video into RTP packets (ready for streaming)  |
+| udpsink    | stream the video to the UDP address                               |
+
+## Save video to disk
+The script will save a .h264 video file and stream the video to an IP:PORT at same time.
+
+```sh
+NOW=$(date +"%Y-%m-%d")
+VIDEO_FILE=${PWD}/videos/$NOW-livecam.h264
+UDP_IP=192.168.192.104 # The receiver IP
+UDP_PORT=5600
+
+/usr/bin/raspivid -n -w 1280 -h 720 -rot 180 -b 1500000 -fps 25 -vs -drc high -t 0 -o - | \
+tee $VIDEO_FILE | \
+/usr/bin/gst-launch-1.0 -v fdsrc ! \
+h264parse ! rtph264pay config-interval=10 pt=96 ! \
+udpsink host=$UDP_IP port=$UDP_PORT
 ```
-gst-launch-1.0  
--v          Output status information (do I need it?)
-fdsrc       source from unix file descriptor
-h264parse
-rtph264pay config-interval=10 pt=96
-udpsink host=192.168.192.101                
-```
 
-## Autostarting on boot
-### [Reference](https://docs.emlid.com/navio/common/dev/video-streaming/#autostarting-on-boot)
+### Convert the .h264 video to .mp4 format
+Install the MP4BOX \
+`sudo apt install -y gpac`
 
-### Create systemd service:
-    sudo pico /etc/systemd/system/raspicam.service
+Convert \
+`MP4Box -add input.h264 output.mp4`
 
-### Add the config:
-    [Unit]
-    Description=raspivid
-    After=network.target
-
-    [Service]
-    ExecStart=/bin/sh -c "/usr/bin/raspivid -n -w 640 -h 360 -b 1000000 -fps 15 -t 0 -o - | gst-launch-1.0 -v fdsrc ! h264parse ! rtph264pay config-interval=10 pt=96 ! udpsink host=192.168.192.101 port=5600"
-
-    [Install]
-    WantedBy=default.target
-
-> The 192.168.192.101 is remote server IP
-> [Raspberry Pi Camera settings document](https://www.raspberrypi.org/documentation/raspbian/applications/camera.md)
-
-### Register the services:
-    sudo systemctl daemon-reload
-    sudo systemctl enable raspicam
-    sudo systemctl start raspicam
-
-
-### Testing: How to save video to disk?
-Reference: https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gstreamer-plugins/html/gstreamer-plugins-tee.html
-
-The script below not work, if the stream didn't stop, the video will not be saved. 
-
-    raspivid -n -w 1280 -h 720 -b 1000000 -fps 15 -t 0 -o - | gst-launch-1.0 -v fdsrc ! h264parse ! tee name=t t. ! queue ! rtph264pay config-interval=10 pt=96 ! udpsink host=192.168.192.102 port=5600 t. ! queue ! mp4mux ! filesink location=/home/bellergy/videos/testing.mp4
-
-[Need to use C code to make it? Need to know how to pass remote button signal too.](https://github.com/crearo/gstreamer-cookbook/blob/master/README.md#startstop-recording-at-will)
-
-
+---
 ### Testing: Multicast Streaming (Not work yet!!)
 
     raspivid -n -w 1280 -h 720 -b 1000000 -fps 15 -t 0 -o - | gst-launch-1.0 -v fdsrc ! h264parse ! rtph264pay config-interval=10 pt=96 ! udpsink host=
@@ -102,5 +90,4 @@ gst-launch-1.0 -v udpsrc port=9000 caps='application/x-rtp, media=(string)video,
 ---
 
 ## Documents
-[Offical docuemnt of Latency](https://gstreamer.freedesktop.org/documentation/tutorials/basic/index.html)
-[Offical dpcument of Basic Tutorials for developer](https://gstreamer.freedesktop.org/documentation/tutorials/basic/index.html)
+[Offical docuemnt of gstreamer](https://gstreamer.freedesktop.org/documentation/tutorials/basic/index.html)
