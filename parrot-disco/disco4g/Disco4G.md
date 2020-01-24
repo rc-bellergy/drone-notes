@@ -98,7 +98,7 @@ dmesg
 
 
 ## Connect ZeroTier
-    sudo zerotier-cli join d3ecf5726d264851
+    sudo zerotier-cli join {network-id}
 
 ## My Q&A
 

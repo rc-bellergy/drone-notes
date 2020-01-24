@@ -26,7 +26,7 @@ sudo chmod 775 arduplane
 
 ### Enable ZeroTear service and join NAVIO nwtrowk
     sudo systemctl status zerotier-one.service
-    sudo zerotier-cli join 1c33c1ced0a29aaa
+    sudo zerotier-cli join {network-id}
 
 ## [Mavlink connection setup](https://docs.emlid.com/navio/common/ardupilot/installation-and-running/#specifying-launching-options)
 

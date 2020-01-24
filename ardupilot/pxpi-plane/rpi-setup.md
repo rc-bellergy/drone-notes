@@ -32,7 +32,6 @@
 
 ## Disable Bluetooth
     sudo systemctl disable hciuart.service
-    sudo systemctl disable bluealsa.service
     sudo systemctl disable bluetooth.service
 
 ## Install the required packages on the Raspberry Pi
