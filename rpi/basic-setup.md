@@ -5,15 +5,15 @@
 ## Restore SD card image
 ```
 diskutil list                           // show the SD card disk path
-diskutil unmountDisk /dev/{diskx}       // unmount SD card
-sudo newfs_msdos -F 16 /dev/{diskx}     // format SD card
-sudo dd if={/path/of/image/xxx.dmg} of=/dev/{diskx}    // restore image file to SD card
+diskutil unmountDisk /dev/diskx       // unmount SD card
+sudo newfs_msdos -F 16 /dev/diskx     // format SD card
+sudo dd if={/path/of/image/xxx.dmg} of=/dev/diskx bs=1m   // restore image file to SD card
 ```
 
 ## Backup SD card image
 ```
 diskutil list
-sudo dd if=/dev/{diskx} of=~{/path/of/image/xxxx.dmg}
+sudo dd if=/dev/diskx of=~{/path/of/image/xxxx.dmg}
 ```
 ---
 

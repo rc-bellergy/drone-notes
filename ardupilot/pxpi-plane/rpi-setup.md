@@ -5,32 +5,37 @@
 2. Read [rasp-basic.md](../rpi/basic-setup.md) for how to create the SD card image.
 
 ## Login
-    Login: bellergy
-    PW: xxxxxx
 
     Login: pi
     Pw: xxxxxx
 
 ## Join zerotier
-    192.168.192.169
+    192.168.192.168
 
-## Local domain
-    pxpi.local
+## Set raspi-config
+    sudo raspi-config
 
-## WiFi config file
-    sudo pico /etc/wpa_supplicant/wpa_supplicant.conf
 
-## Add to /boot/config.txt
-    # Let the Pixhawk telemetry input from UART port
-    enable_uart=1
+### Trun on the UART port
+- 5. Interfacing Options > P6. Serial
+  -  Login shell to be accessible over serial: "No"
+  -  Serial port hardware to be enabled: "Yes"
+
+## Edit to /boot/config.txt
+For raspberrypi 3, the build-in Bluetooth used the default UART port.\
+Disable it to restore the `/dev/ttyAMA0`\
+[Read More...](https://www.raspberrypi.org/documentation/configuration/uart.md)
 
     # Disable build-in Bluetooth
-    dtoverlay=pi3-disable-bt
+    dtoverlay=disable-bt
 
-    # Disable build-in WiFi (Use the USB WiFi when need. I don't want it interference the RC)
-    dtoverlay=pi3-disable-wifi
+    # Disable build-in WiFi
+    dtoverlay=disable-wifi
 
 ## Disable Bluetooth
+Disable the system service that initialises the modem so it doesn't use the UART\
+[More about hciuart](https://docs.zephyrproject.org/latest/samples/bluetooth/hci_uart/README.html)
+
     sudo systemctl disable hciuart.service
     sudo systemctl disable bluetooth.service
 

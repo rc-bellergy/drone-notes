@@ -6,10 +6,10 @@
 [HK Shop](http://www.torch.com.hk/tc/product?no=1330)
 
 ## Panasonic NCR18650B Li-ion Battery
-[Spec](https://www.batteryspace.com/prod-specs/NCR18650B.pdf)
-[Info](https://blog.seidel-philipp.de/diy-build-a-longrange-lithium-ion-battery/)
-[c Rate calculator](https://power-calculation.com/battery-storage-calculator.php)
-[Battery Finder](https://voltaplex.com/lithium-ion-battery-pack/18650-battery-pack)
+[Spec](https://www.batteryspace.com/prod-specs/NCR18650B.pdf)\
+[Info](https://blog.seidel-philipp.de/diy-build-a-longrange-lithium-ion-battery/)\
+[c Rate calculator](https://power-calculation.com/battery-storage-calculator.php)\
+[Battery Finder](https://voltaplex.com/lithium-ion-battery-pack/18650-battery-pack)\
 [NCR18650B 3S2P description](https://voltaplex.com/3s2p-10.8v-6.7ah-li-ion-18650-battery-pack-panasonic-b-cuboid)
 
 ## 1S1P
@@ -22,10 +22,13 @@
 ## 3S2P
     3.6v x 3s = 10.8v
     3250mAh x 2p = 6500mAh
-    48.5g x 6 = 291g (without wires)
+    48.5g x 6 = 291g (without  wires)
     Continuous Discharge Rating = 9.75A
 
-![](images/3s2p-wiring.png)
+![3S2P wiring](images/3s2p-wiring.png)
+![3S2P wiring](images/IMG_5039.jpg)
+![3S2P installed to Parrot Disco](images/IMG_6238.jpg)
+
 
 ## 4S3P
     3.6v x 4s = 14.4v
