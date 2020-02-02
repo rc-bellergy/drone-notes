@@ -1,4 +1,4 @@
-# PxPi Drone Project 2020
+# Toritaka Drone Project 2020
 
 This project is to install Pixhawk to Parrot Disco and use a 3G / 4G network to achieve the goal of `long-range ground station control`.
 

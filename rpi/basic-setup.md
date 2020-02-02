@@ -88,22 +88,13 @@ Look up network interface ofcat  ZeroTier
 ```
 ip link show
 ```
-Show ZeroTier network status (zt2lrwgvd2)
-```
-sudo iftop -n -i zt2lrwgvd2
 
-```
 
 ## Set the priority of networks
 http://0pointer.de/lennart/projects/ifmetric/
 Install ifmetric
 ```
 sudo apt-get install ifmetric
-```
-
-## Show Joined WiFi
-```
-iwgetid
 ```
 
 

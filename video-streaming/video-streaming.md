@@ -87,6 +87,8 @@ gst-launch-1.0 -v udpsrc port=9000 caps='application/x-rtp, media=(string)video,
 
 [Video Bitrate Calculator](https://www.dr-lex.be/info-stuff/videocalc.html)
 
+[Raspberry camera projects](https://stamm-wilbrandt.de/en/Raspberry_camera.html)
+
 ---
 
 ## Documents
