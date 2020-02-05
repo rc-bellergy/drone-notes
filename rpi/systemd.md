@@ -19,6 +19,9 @@ Using 'zerotier-one' service for example:
 ### List all loaded services
     systemctl list-units
 
+### Show started service
+    service --status-all
+
 ### Viewing a service (debug) log
     sudo journalctl -u zerotier-one
 

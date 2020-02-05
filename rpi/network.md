@@ -4,14 +4,13 @@
     /etc/wpa_supplicant/wpa_supplicant.conf
 
 # Restart the WiFi
-    sudo sudo ifconfig wlan0 down && sudo ifconfig wlan0 up
+    sudo ifconfig wlan0 down && sudo ifconfig wlan0 up
 
 # Close the USB modam network
     sudo ifconfig eth0 down
 
 # Zerotier
 [Help/support site](https://zerotier.atlassian.net/wiki/discover/all-updates)
-
 
 # WiFi network tools
 [Reference](https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html)
@@ -26,4 +25,11 @@
 
 ## Show ZeroTier network status (zt2lrwgvd2)
     sudo iftop -n -i zt2lrwgvd2
+
+## Set the priority of networks
+http://0pointer.de/lennart/projects/ifmetric/
+Install ifmetric
+```
+sudo apt-get install ifmetric
+```
 

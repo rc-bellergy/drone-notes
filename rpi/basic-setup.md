@@ -2,25 +2,6 @@
 
 [Nacio+ Raspberry Pi configuration document](https://docs.emlid.com/navio/common/ardupilot/configuring-raspberry-pi/)
 
-## Restore SD card image
-```
-diskutil list                           // show the SD card disk path
-diskutil unmountDisk /dev/diskx       // unmount SD card
-sudo newfs_msdos -F 16 /dev/diskx     // format SD card
-sudo dd if={/path/of/image/xxx.dmg} of=/dev/diskx bs=1m   // restore image file to SD card
-```
-
-## Backup SD card image
-```
-diskutil list
-sudo dd if=/dev/diskx of=~{/path/of/image/xxxx.dmg}
-```
----
-
-## If the SD card is too large for backup?
-[Read here...](https://www.raspberrypi.org/forums/viewtopic.php?t=60161#p450676)
-
-
 ## Login default username and password
 ```
 default user: pi
@@ -75,28 +56,3 @@ sudo ifdown wlan0 && sudo ifup wlan0
 ```
 dmesg
 ```
-
-## Show started service
-     service --status-all
-
-## Show Network Bandwidth
-Install iftop
-```
-sudo apt-get install iftop
-```
-Look up network interface ofcat  ZeroTier
-```
-ip link show
-```
-
-
-## Set the priority of networks
-http://0pointer.de/lennart/projects/ifmetric/
-Install ifmetric
-```
-sudo apt-get install ifmetric
-```
-
-
-[Read more...](https://superuser.com/questions/331720/how-do-i-set-the-priority-of-network-connections-in-ubuntu)
-
