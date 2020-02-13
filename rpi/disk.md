@@ -54,8 +54,10 @@ sudo pico /etc/fstab
 ```
     # Add below line to end of /etc/fstab
     /dev/mmcblk0p3  /data           ext4    defaults        1       2
-```
-mkdir /data
-mount /data
-cd /data
-ls
+
+### Create the mount point
+    mkdir /data
+    mount /data
+
+### Resize the disk
+    sudo resize2fs /dev/mmcblk0p3
