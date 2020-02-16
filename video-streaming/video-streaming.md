@@ -18,14 +18,14 @@ Raspbarry Pi video streaming start up script:
 
 
 #### Remarks of raspivid options
-| Options        | Descriptions                                                                                                                                                                                                                   |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| --nopreview    | No preview window                                                                                                                                                                                                              |
-| --bitrate      | bitrate (1000000 = 10Mbits/s)                                                                                                                                                                                                  |
-| --timeout 0    | timeout 0 = run continuously                                                                                                                                                                                                   |
-| -o -           | output file '-' all output is sent to stdout                                                                                                                                                                                   |
-| --vstab        | Turn on video stabilisation                                                                                                                                                                                                    |
-| -ex auto/night | Exposure auto or night mode                                                                                                                                                                                                    |
+| Options        | Descriptions |
+| -------------- | --------------- |
+| --nopreview    | No preview window 
+| --bitrate      | bitrate (1000000 = 10Mbits/s)| 
+| --timeout 0    | timeout 0 = run continuously | 
+| -o -           | output file '-' all output is sent to stdout |
+| --vstab        | Turn on video stabilisation  | 
+| -ex auto/night | Exposure auto or night mode  | 
 | --flush        | (Tested, don't use it in the slow network. It will make 'gray screen' randomly) Forces a flush of output data buffers as soon as video data is written. This bypasses any OS caching of written data, and can decrease latency |
 
 Adjust bitrate with -b switch or -fps if your video lags behind.

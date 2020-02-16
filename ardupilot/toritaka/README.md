@@ -4,12 +4,12 @@ This project is to install Pixhawk to Parrot Disco and use a 3G / 4G network to 
 
 ## The Goal
 - **Network**
-  - [ ] Over 20 km remote control drone
+  - [ ] Over 20 km remote control drone over
   - [ ] Bonding two 4G networks to imporive the speed and reliable
   - [x] Using Zerotier setup the virtual LAN to connect ground stations and drones
 - **Video**
   - [x] Live streaming FPV vieo
-  - [ ] Low latency video (< 150 ms ?)
+  - [x] Low latency video as low as 50 ms ([use JPEG Stream code](https://github.com/rc-bellergy/pxpi/blob/master/home/pi/jpeg-stream/README.md)) 
   - [x] Remote control on/off video streaming
   - [x] Save video
   - [ ] Save HD video
