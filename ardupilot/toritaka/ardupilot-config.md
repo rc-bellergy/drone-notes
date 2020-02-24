@@ -3,6 +3,8 @@
 - `SERVO1_FUNCTION` = 77 Elevon Left 
 - `SERVO2_FUNCTION` = 78 Elevon Right
 - `SERVO3_FUNCTION` = 70 Throttle
+- `SERVO1_REVERSED` = Reversed
+- `RC1_REVERSED` = Reversed
 
 ## [2. Servo Setup & Reversal](https://ardupilot.org/plane/docs/guide-elevon-plane.html#servo-setup-reversal)
  - Switch to `FBWA` flight mode and press the safety switch

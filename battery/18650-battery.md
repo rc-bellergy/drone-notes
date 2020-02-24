@@ -17,12 +17,12 @@
     Capacity: 3250mAh (min.)
     Weight: 48.5g
     Charging: 0.5C (1625mA)
-    Discharge rate: 4.87A
+    Discharge rate: 4.87A (1.5C)
 
 ## 3S2P
     3.6v x 3s = 10.8v
     3250mAh x 2p = 6500mAh
-    48.5g x 6 = 291g (without  wires)
+    48.5g x 6 = 291g (without wires)
     Continuous Discharge Rating = 9.75A
 
 ![3S2P wiring](images/3s2p-wiring.png)
@@ -34,17 +34,23 @@
     3.6v x 4s = 14.4v
     3250mAh x 3p = 9750mAh
     48.5g x 12 = 582g
-    Continuous Discharge Rating = 1.5C (14.625A)
+    Continuous Discharge Rating = 14.625A
 
 ## 4S6P
     3250mAh x 6p = 19,500mAh
+    48.5g x 24 = 1,154g
+    Continuous Discharge Rating = 29.250A
 
 ## 4S7P
     3250mAh x 7p = 22,750mAh
     48.5g x 28 = 1,358g
     Continuous Discharge Rating = 34.125A
 
-23357mAh
+## 4S8P
+    3250mAh x 8p = 26,000mAh
+    48.5g x 28 = 1,552g
+    Continuous Discharge Rating = 40.200A
+
 
 ## Suggest change rate: 0.5C
     6.5A * 0.5C = 3.25A
