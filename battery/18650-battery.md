@@ -60,7 +60,7 @@
     18.5 x 3 = 55.5
     18.5 x 2 = 37
     height = 65.3
-    Binded size: 55.5 x 37 x 65.3 (Wiring and packing not incl uded)
+    Binded size: 55.5 x 37 x 65.3 (Wiring and packing not included)
 
 SET vorange range 
 from 3.1v to 4.1v
