@@ -22,3 +22,4 @@ https://www.flyingtech.co.uk/blog/efficiency-vs-performance-how-build-drone-long
 [15" props](https://www.der-frickler.net/modellbau/planes/tragfalter)
 ![](https://www.der-frickler.net/_media/modellbau/planes/tragfalter/tragfalter_022.jpg)
 
+# My Build

@@ -1,6 +1,6 @@
 # USB Modem
 
-## HUAWEI E3370, E3372, E303c...
+## HUAWEI E3370, E303c...
 
 ### Did the USB loaded
     $ lsusb | grep Huawei
