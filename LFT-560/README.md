@@ -1,4 +1,4 @@
-# Long Flight Time bulticopter project
+# Long Flight Time copter project
 
 ## References:
 https://www.flyingtech.co.uk/blog/efficiency-vs-performance-how-build-drone-long-flight-time
@@ -6,7 +6,7 @@ https://www.flyingtech.co.uk/blog/efficiency-vs-performance-how-build-drone-long
 [Long Flight Build Discussion](https://www.rcgroups.com/forums/showpost.php?s=897f63b3dd754078d8a1c6187eae1ed4&p=36886807&postcount=9)
 
 
-## Conecpt:
+## Conecpts:
 
 ### KV and RPM
 - 12V 880KV motor will be able to achieve a theoretical maximum RPM of 10,560 (12 x 880 = 10,560)

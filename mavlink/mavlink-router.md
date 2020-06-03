@@ -18,7 +18,7 @@ Use [mavlink-router](https://github.com/intel/mavlink-router) to replace the mav
     make
     make install
 
-> If show `ImportError: No module named 'future'` when make;<br>
+> If show `ImportError: No module named 'future'` when `make`;<br>
 > Install it `pip3 install future`<br>
 > If no `pip3`;<br>
 > Install it `sudo apt-get install python3-pip`
@@ -34,4 +34,4 @@ The command below will read the mavlink data from `ttyAMA0` by `115200` baudrate
 then broadcast it to 192.168.192.*\
 and localhost port 14550 and 14551 
 
-    mavlink-routerd /dev/ttyAMA0:115200 -e 192.168.192.255:14550 -e 127.0.0.1:14550 -e 27.0.0.1:14551
+    mavlink-routerd /dev/ttyAMA0:115200 -e 192.168.192.255:14550 -e 127.0.0.1:14550 -e 127.0.0.1:14551
