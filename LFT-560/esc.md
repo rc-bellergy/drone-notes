@@ -22,7 +22,7 @@ A large number of installed experience, stable and reliable, strong overcurrent 
  
 ### Product features: 
     1: Input voltage: 2-4S Lipo
-    2:BEC Output: None
+    2: BEC Output: None
     3: Working current: 20A (maximum current: 25A 10S)
     4: Size: 24*12.7*5mm
     5: weight: 5g
@@ -34,4 +34,4 @@ A large number of installed experience, stable and reliable, strong overcurrent 
 https://oscarliang.com/dshot/
 
 ## Use DShot with PX4
-https://docs.px4.io/master/en/peripherals/dshot.html
+https://docs.px4.io/master/en/peripherals/dshot.html    
