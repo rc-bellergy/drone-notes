@@ -31,11 +31,15 @@ https://dev.px4.io/v1.9.0/en/setup/building_px4.html
 
 ### How to build and start jmavsim in the remove server and receive the MAVLink (e.g. QGrountcontrol) in the local PC?
 
-1. Build `px4_sitl` and start `jmavsim` in the remote server:\
-    HEADLESS=1 make px4_sitl jmavsim
+Do following steps in the remote server:
 
-2. Start `mavlink-router` route the data to your local PC\
-   mavlink-routerd 127.0.0.1:14550 -e 192.168.192.103:14550
+1. Build `px4_sitl` and start `jmavsim`\
+    ```HEADLESS=1 make px4_sitl jmavsim```
+
+2. Install the [mavlink-router](https://github.com/intel/mavlink-router)
+
+3. Start `mavlink-router` route the data to your local PC\
+   ```/usr/bin/mavlink-routerd 127.0.0.1:14550 -e 192.168.192.101:14550```
 
 
 ### Build the SITL plane in gazebo

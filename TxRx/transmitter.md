@@ -23,7 +23,7 @@ ArduPilot has FrSky telemetry drivers to natively output flight controller infor
 [The custom build the telemetry cable](https://discuss.ardupilot.org/t/some-soldering-required/27613)
 ![](https://discuss.ardupilot.org/uploads/default/optimized/2X/2/25a0d6363a7f6330d9e21b74ab4c0bec4c88fd62_1_690x459.jpg)
 
-[Yaapu Frsky Telemetru Script](https://github.com/yaapu/FrskyTelemetryScript)
+[Yaapu Frsky Telemetry Script](https://github.com/yaapu/FrskyTelemetryScript)
 
 [How RS-232 to TTL works?](https://www.sparkfun.com/tutorials/215)
 
