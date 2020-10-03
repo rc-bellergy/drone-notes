@@ -51,42 +51,6 @@ Change to use zsh (if not using zsh):
 ## Download the PX4 source code
     git clone https://github.com/PX4/Firmware.git --recursive
 
----
-
-## Test build a jMAVSim simulator 
-    cd Firmware
-    make px4_sitl jmavsim
-
-### Issue (only on my iMac):
-The java version not match.
-
-    Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 58.0), this version of the Java Runtime only recognizes class file versions up to 57.0
-
-### Not fix:
-- Update the Java on Mac control panel
-- Not work
-
----
-
-## Build gazebo simulator
-
-    make px4_sitl gazebo
-
-### Issue
-
-    #include <libavcodec/avcodec.h>
-    1 error generated.
-    ninja: build stopped: subcommand failed.
-    FAILED: external/Stamp/sitl_gazebo/sitl_gazebo-build
-
-Is `libavcodec` missing?
-
-
-### Fix:
-
-    brew upgrade ffmpeg
-
-Then go to System Perferences > Software Update
 
 ---
 ## Build PX4 firmware for Pixracer
