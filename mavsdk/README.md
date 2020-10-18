@@ -19,7 +19,7 @@ Please find the update version in https://github.com/mavlink/mavsdk/releases. Th
 
     wget https://github.com/mavlink/MAVSDK/releases/download/v0.31.0/mavsdk_server_linux-armv6
 
-    chmod u+x avsdk_server_linux-armv6
+    chmod u+x mavsdk_server_linux-armv6
 ---
 
 
