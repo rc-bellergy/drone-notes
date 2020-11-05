@@ -5,7 +5,7 @@ https://dev.px4.io/master/en/simulation/gazebo.html#video
 
     make px4_sitl gazebo
 
-### Issue
+### Issue:
 
     #include <libavcodec/avcodec.h>
     1 error generated.
@@ -29,7 +29,17 @@ I open the error file and change the include header to
 
 Not only one file has problem, replace it one by one.
 
-**It is not a good way to handle the error, just work** 
+**It is not a good way to handle the error, just work**
+
+### Issue:
+    FAILED: libgazebo_video_stream_widget.dylib 
+
+### Fix:
+    Change the file:
+    Tools/sitl_gazebo/CMakeLists.txt
+
+    option(BUILD_GSTREAMER_PLUGIN "enable gstreamer plugin" OFF)
+
 
 ---
 ## Build jMAVSim simulator 
