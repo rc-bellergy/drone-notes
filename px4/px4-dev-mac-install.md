@@ -49,8 +49,7 @@ Change to use zsh (if not using zsh):
     brew install px4-sim-gazebo
 
 ## Download the PX4 source code
-    git clone https://github.com/PX4/Firmware.git --recursive
-
+    git clone https://github.com/rc-bellergy/Firmware.git --recursive
 
 ---
 ## Build PX4 firmware for Pixracer

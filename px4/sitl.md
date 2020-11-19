@@ -2,7 +2,7 @@
 https://dev.px4.io/master/en/simulation/gazebo.html#video
 
 ## Build gazebo simulator
-
+    cd Firmware
     make px4_sitl gazebo
 
 ### Issue:
@@ -67,3 +67,7 @@ The java version not match.
 
     HEADLESS=1 make px4_sitl gazebo_iris
 
+
+# mavlink-router
+
+    
